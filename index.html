@@ -1,1 +1,1042 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Integrated marketing services landing page mockup.">
+  <title>Integrated Marketing Services | EBQ</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
+  <style>
+    /* Design tokens and global defaults */
+    :root {
+      --ebq-blue: #2478f2;
+      --ebq-blue-dark: #144fa7;
+      --ebq-blue-soft: #eaf3ff;
+      --ebq-yellow: #ffb82e;
+      --ebq-text: #090b0f;
+      --ebq-muted: #39414d;
+      --ebq-white: #ffffff;
+      --content-width: 1132px;
+      --font-display: Seravek, Lato, "Gill Sans", Calibri, sans-serif;
+      --font-body: "Open Sans", Arial, Helvetica, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ebq-text);
+      background: var(--ebq-white);
+      font-family: var(--font-body);
+      font-synthesis: none;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* Shared page shell, header, logo, and buttons */
+    .page-shell {
+      min-width: 320px;
+      overflow: hidden;
+    }
+
+    .site-header {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 48px 55px 0;
+    }
+
+    .site-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: inline-flex;
+      width: 86px;
+      height: 86px;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .logo__image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      padding: 0 36px;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 180ms ease, color 180ms ease,
+        border-color 180ms ease, transform 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button:focus-visible,
+    .logo:focus-visible {
+      outline: 3px solid var(--ebq-yellow);
+      outline-offset: 4px;
+    }
+
+    .button--primary {
+      color: var(--ebq-white);
+      background: var(--ebq-blue);
+    }
+
+    .button--primary:hover {
+      background: var(--ebq-blue-dark);
+    }
+
+    .button--accent {
+      color: #0b3f83;
+      background: var(--ebq-yellow);
+    }
+
+    .button--accent:hover {
+      color: var(--ebq-white);
+      background: var(--ebq-blue);
+      border-color: rgba(255, 255, 255, 0.68);
+    }
+
+    /* Hero section */
+    .hero {
+      display: flex;
+      min-height: 584px;
+      align-items: center;
+      background: var(--ebq-blue-soft);
+    }
+
+    .hero__inner,
+    .services__inner {
+      width: min(calc(100% - 80px), var(--content-width));
+      margin: 0 auto;
+    }
+
+    .hero__content {
+      width: min(560px, 100%);
+      padding-top: 63px;
+    }
+
+    .hero__title {
+      margin: 0 0 20px;
+      font-family: var(--font-display);
+      font-size: clamp(43px, 3.7vw, 52px);
+      font-weight: 400;
+      line-height: 0.98;
+      letter-spacing: -0.7px;
+    }
+
+    .hero__title strong {
+      display: block;
+      font-weight: 700;
+    }
+
+    .hero__copy,
+    .feature__copy {
+      margin: 0;
+      color: var(--ebq-text);
+      font-size: 20px;
+      line-height: 1.35;
+      letter-spacing: normal;
+    }
+
+    /* Marketing service feature rows and supplied image assets */
+    .services {
+      padding: 145px 0 150px;
+      background: var(--ebq-white);
+    }
+
+    .services__inner {
+      display: grid;
+      gap: 145px;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 76px;
+      align-items: center;
+    }
+
+    .feature__text {
+      width: 100%;
+      max-width: 515px;
+    }
+
+    .feature__title {
+      margin: 0 0 25px;
+      font-family: var(--font-display);
+      font-size: clamp(35px, 3vw, 42px);
+      font-weight: 400;
+      line-height: 1.03;
+      letter-spacing: -0.5px;
+    }
+
+    .feature__title strong {
+      font-weight: 700;
+    }
+
+    .feature__copy + .feature__copy {
+      margin-top: 22px;
+    }
+
+    .feature--team .feature__visual {
+      order: 1;
+    }
+
+    .feature--team .feature__text {
+      order: 2;
+    }
+
+    .asset-slot {
+      display: flex;
+      width: 100%;
+      min-height: 320px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .feature__image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .feature__image--tools {
+      max-width: 647px;
+    }
+
+    .feature__image--team {
+      max-width: 490px;
+    }
+
+    /* Closing call-to-action band */
+    .contact-band {
+      display: grid;
+      min-height: 392px;
+      padding: 70px 30px;
+      place-items: center;
+      color: var(--ebq-white);
+      background: var(--ebq-blue-dark);
+      text-align: center;
+    }
+
+    .contact-band__title {
+      margin: 0 0 55px;
+      font-family: var(--font-display);
+      font-size: clamp(32px, 3.1vw, 43px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.4px;
+    }
+
+    .contact-band__title strong {
+      font-weight: 700;
+    }
+
+    /* Contact dialog and proof-of-concept form */
+    .modal-open {
+      overflow: hidden;
+    }
+
+    .contact-dialog {
+      width: min(calc(100% - 40px), 600px);
+      max-height: calc(100dvh - 40px);
+      padding: 0;
+      overflow: auto;
+      color: var(--ebq-text);
+      background: var(--ebq-white);
+      border: 0;
+      border-radius: 14px;
+      box-shadow: 0 28px 80px rgba(6, 35, 77, 0.28);
+    }
+
+    .contact-dialog[open] {
+      animation: dialog-in 240ms ease-out;
+    }
+
+    .contact-dialog::backdrop {
+      background: rgba(5, 29, 63, 0.68);
+      backdrop-filter: blur(4px);
+    }
+
+    .contact-dialog__panel {
+      position: relative;
+      padding: 48px;
+    }
+
+    .contact-dialog__eyebrow {
+      margin: 0 0 10px;
+      color: var(--ebq-blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .contact-dialog__title {
+      margin: 0 44px 12px 0;
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.4px;
+    }
+
+    .contact-dialog__copy {
+      max-width: 470px;
+      margin: 0 0 30px;
+      color: var(--ebq-muted);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .contact-dialog__close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: grid;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      place-items: center;
+      color: #24415e;
+      background: #f0f5fb;
+      border: 0;
+      border-radius: 50%;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      transition: color 180ms ease, background-color 180ms ease,
+        transform 180ms ease;
+    }
+
+    .contact-dialog__close:hover {
+      color: var(--ebq-white);
+      background: var(--ebq-blue-dark);
+      transform: rotate(4deg);
+    }
+
+    .contact-dialog__close:focus-visible,
+    .contact-form__control:focus-visible {
+      outline: 3px solid var(--ebq-yellow);
+      outline-offset: 3px;
+    }
+
+    .contact-form__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .contact-form__field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .contact-form__field--full {
+      grid-column: 1 / -1;
+    }
+
+    .contact-form__label {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .contact-form__control {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      color: var(--ebq-text);
+      background: var(--ebq-white);
+      border: 1px solid #cbd8e7;
+      border-radius: 7px;
+      font: inherit;
+      font-size: 16px;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    textarea.contact-form__control {
+      min-height: 125px;
+      resize: vertical;
+    }
+
+    .contact-form__control:hover {
+      border-color: #86a6ca;
+    }
+
+    .contact-form__control:focus-visible {
+      border-color: var(--ebq-blue);
+      box-shadow: 0 0 0 4px rgba(36, 120, 242, 0.12);
+    }
+
+    .contact-form__footer {
+      display: flex;
+      margin-top: 24px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .contact-form__status {
+      margin: 20px 0 0;
+      padding: 13px 15px;
+      color: #0b4c34;
+      background: #e8f7f0;
+      border-left: 4px solid #1d9b68;
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    @keyframes dialog-in {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.99);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Scroll-reveal animation state and paired-item timing */
+    .reveal-ready [data-reveal] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 650ms ease var(--reveal-delay, 0ms),
+        transform 650ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+      will-change: opacity, transform;
+    }
+
+    .reveal-ready [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .feature--tools .feature__visual,
+    .feature--team .feature__text {
+      --reveal-delay: 100ms;
+    }
+
+    /* Tablet and compact desktop adjustments */
+    @media (max-width: 860px) {
+      .site-header {
+        padding: 28px 28px 0;
+      }
+
+      .logo {
+        width: 78px;
+        height: 78px;
+      }
+
+      .site-header .button {
+        min-height: 42px;
+        padding: 0 24px;
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 560px;
+      }
+
+      .hero__inner,
+      .services__inner {
+        width: min(calc(100% - 56px), var(--content-width));
+      }
+
+      .hero__content {
+        padding-top: 76px;
+      }
+
+      .hero__title {
+        font-size: clamp(40px, 8vw, 52px);
+      }
+
+      .services {
+        padding: 96px 0 110px;
+      }
+
+      .services__inner {
+        gap: 110px;
+      }
+
+      .feature {
+        grid-template-columns: 1fr;
+        gap: 55px;
+      }
+
+      .feature__text {
+        max-width: 620px;
+      }
+
+      .feature--tools .feature__visual {
+        order: 1;
+        --reveal-delay: 0ms;
+      }
+
+      .feature--tools .feature__text {
+        order: 2;
+        --reveal-delay: 100ms;
+      }
+
+      .feature--team .feature__visual {
+        order: 2;
+        --reveal-delay: 100ms;
+      }
+
+      .feature--team .feature__text {
+        order: 1;
+        --reveal-delay: 0ms;
+      }
+
+      .asset-slot {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+
+    /* Mobile layout matching the supplied reference */
+    @media (max-width: 540px) {
+      .site-header {
+        padding: 40px 28px 0;
+      }
+
+      .button {
+        min-height: 44px;
+        padding: 0 26px;
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 790px;
+      }
+
+      .hero__inner,
+      .services__inner {
+        width: calc(100% - 56px);
+      }
+
+      .hero__content {
+        width: 100%;
+        max-width: 358px;
+        padding-top: 80px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .hero__title {
+        margin-bottom: 30px;
+        font-size: 52px;
+        line-height: 0.96;
+        letter-spacing: -0.55px;
+      }
+
+      .hero__title strong {
+        width: min(280px, 100%);
+        margin: 0 auto;
+      }
+
+      .hero__copy {
+        max-width: 330px;
+        margin: 0 auto;
+      }
+
+      .hero__copy,
+      .feature__copy {
+        font-size: 17px;
+        line-height: 1.42;
+      }
+
+      .services {
+        padding: 95px 0 100px;
+      }
+
+      .services__inner {
+        gap: 95px;
+      }
+
+      .feature {
+        gap: 76px;
+        text-align: center;
+      }
+
+      .feature__text {
+        max-width: 340px;
+        margin: 0 auto;
+      }
+
+      .feature__title {
+        margin: 0 auto 26px;
+        font-size: 38px;
+        line-height: 1.05;
+        letter-spacing: -0.35px;
+      }
+
+      .feature--tools .feature__title {
+        max-width: 300px;
+      }
+
+      .feature--team .feature__title {
+        max-width: 325px;
+      }
+
+      .feature__copy {
+        max-width: 330px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .asset-slot {
+        min-height: 0;
+      }
+
+      .feature--tools .feature__visual {
+        width: 100%;
+        max-width: 358px;
+        margin: 0 auto;
+      }
+
+      .feature__image--team {
+        max-width: 350px;
+      }
+
+      .contact-band {
+        min-height: 575px;
+        padding: 100px 28px;
+      }
+
+      .contact-band__title {
+        max-width: 330px;
+        margin: 0 auto 55px;
+        font-size: 39px;
+        line-height: 1.08;
+        letter-spacing: -0.25px;
+      }
+
+      .contact-dialog {
+        width: calc(100% - 24px);
+        max-height: calc(100dvh - 24px);
+      }
+
+      .contact-dialog__panel {
+        padding: 42px 24px 30px;
+      }
+
+      .contact-dialog__title {
+        font-size: 32px;
+      }
+
+      .contact-dialog__copy {
+        margin-bottom: 26px;
+      }
+
+      .contact-form__grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+      }
+
+      .contact-form__field--full {
+        grid-column: auto;
+      }
+
+      .contact-form__footer {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .contact-form__footer .button {
+        width: 100%;
+      }
+    }
+
+    /* Respect visitors who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal-ready [data-reveal] {
+        opacity: 1;
+        transform: none;
+      }
+
+      .contact-dialog[open] {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-shell">
+    <!-- Site header -->
+    <header class="site-header" aria-label="Primary">
+      <div class="site-header__inner">
+        <a class="logo" href="#top" aria-label="EBQ home">
+          <img
+            class="logo__image"
+            src="https://raw.githubusercontent.com/IlanOlivares/EBQ/2185204f38b5ba287b36cbf9130f393cbedac14e/resources/logo-blue-160x160-1.png"
+            alt="EBQ"
+            width="160"
+            height="160"
+            decoding="async"
+          >
+        </a>
+        <button class="button button--primary" type="button" data-contact-open>
+          Contact Us
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__inner">
+          <div class="hero__content" data-reveal>
+            <h1 class="hero__title" id="hero-title">
+              Integrated
+              <strong>Marketing Services</strong>
+            </h1>
+            <p class="hero__copy">
+              We turn your marketing plans into action by building on your ideas
+              and executing initiatives alongside you and your team. Get a
+              complete department that can pivot to different areas of marketing
+              based on your needs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Marketing service advantages -->
+      <section class="services" aria-label="Marketing service advantages">
+        <div class="services__inner">
+          <!-- Modern marketing tools feature -->
+          <article class="feature feature--tools">
+            <div class="feature__text" data-reveal>
+              <h2 class="feature__title">
+                We’re experts with <strong>modern marketing tools,</strong> so you
+                don’t have to be!
+              </h2>
+              <p class="feature__copy">
+                With hands-on experience in B2B’s most innovative apps and tools,
+                we take a data-driven approach to continually improve prospect
+                engagement. Whether we work directly out of your platform or
+                provide our insights manually, you always get full visibility
+                into the process.
+              </p>
+            </div>
+
+            <div class="feature__visual asset-slot" data-reveal>
+              <img
+                class="feature__image feature__image--tools"
+                src="https://raw.githubusercontent.com/IlanOlivares/EBQ/2185204f38b5ba287b36cbf9130f393cbedac14e/resources/Marketing_Tools.svg"
+                alt="Marketing platforms and tools connected through EBQ"
+                width="647"
+                height="264"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+          </article>
+
+          <!-- Complete marketing department feature -->
+          <article class="feature feature--team">
+            <div class="feature__visual asset-slot" data-reveal>
+              <img
+                class="feature__image feature__image--team"
+                src="https://raw.githubusercontent.com/IlanOlivares/EBQ/2185204f38b5ba287b36cbf9130f393cbedac14e/resources/Complete-Department-Marketing.png"
+                alt="Three members of an EBQ marketing team"
+                width="753"
+                height="729"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+
+            <div class="feature__text" data-reveal>
+              <h2 class="feature__title">
+                <strong>The best way</strong> to build a marketing team
+              </h2>
+              <p class="feature__copy">
+                With EBQ, you’re not just hiring a marketing specialist. You’re
+                getting an entire marketing department at a fraction of the cost
+                and effort of hiring internally.
+              </p>
+              <p class="feature__copy">
+                For each project, we provide a Success Manager to drive
+                high-level strategy, a Project Manager to oversee day-to-day
+                operations, and one or more Specialists working diligently to
+                amplify your brand.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Closing call to action -->
+      <section class="contact-band" id="contact" aria-labelledby="contact-title">
+        <div data-reveal>
+          <h2 class="contact-band__title" id="contact-title">
+            Looking to take your <strong>marketing to the next level?</strong>
+          </h2>
+          <button class="button button--accent" type="button" data-contact-open>
+            Contact Us
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Contact dialog proof of concept -->
+  <dialog
+    class="contact-dialog"
+    id="contact-dialog"
+    aria-labelledby="contact-dialog-title"
+    aria-describedby="contact-dialog-description"
+  >
+    <div class="contact-dialog__panel">
+      <button
+        class="contact-dialog__close"
+        type="button"
+        aria-label="Close contact form"
+        data-contact-close
+      >
+        &times;
+      </button>
+
+      <p class="contact-dialog__eyebrow">Let’s talk</p>
+      <h2 class="contact-dialog__title" id="contact-dialog-title">
+        How can we help?
+      </h2>
+      <p class="contact-dialog__copy" id="contact-dialog-description">
+        Tell us a little about your marketing needs and our team will be ready
+        to continue the conversation.
+      </p>
+
+      <form class="contact-form" id="contact-form">
+        <div class="contact-form__grid">
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="contact-name">Name</label>
+            <input
+              class="contact-form__control"
+              id="contact-name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              required
+            >
+          </div>
+
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="contact-email">Work email</label>
+            <input
+              class="contact-form__control"
+              id="contact-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+            >
+          </div>
+
+          <div class="contact-form__field contact-form__field--full">
+            <label class="contact-form__label" for="contact-company">
+              Company <span>(optional)</span>
+            </label>
+            <input
+              class="contact-form__control"
+              id="contact-company"
+              name="company"
+              type="text"
+              autocomplete="organization"
+            >
+          </div>
+
+          <div class="contact-form__field contact-form__field--full">
+            <label class="contact-form__label" for="contact-message">
+              How can we help?
+            </label>
+            <textarea
+              class="contact-form__control"
+              id="contact-message"
+              name="message"
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="contact-form__footer">
+          <button class="button button--primary" type="submit">
+            Send Message
+          </button>
+        </div>
+
+        <p class="contact-form__status" role="status" aria-live="polite" hidden>
+          The form interaction is working. Connect it to your preferred form
+          endpoint to deliver messages.
+        </p>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Page interactions: contact dialog and scroll reveals -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Contact dialog elements and focus state.
+      const contactDialog = document.querySelector("#contact-dialog");
+      const contactForm = document.querySelector("#contact-form");
+      const contactStatus = contactForm?.querySelector("[role='status']");
+      const contactName = document.querySelector("#contact-name");
+      const openContactButtons = document.querySelectorAll("[data-contact-open]");
+      const closeContactButton = document.querySelector("[data-contact-close]");
+      let lastContactTrigger = null;
+
+      // Close the dialog, including a fallback for older browsers.
+      const closeContactDialog = () => {
+        if (contactDialog?.open) {
+          if (typeof contactDialog.close === "function") {
+            contactDialog.close();
+          } else {
+            contactDialog.removeAttribute("open");
+            document.body.classList.remove("modal-open");
+          }
+        }
+      };
+
+      // Open the form from either CTA and move focus to the first field.
+      openContactButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          lastContactTrigger = button;
+
+          if (contactStatus) {
+            contactStatus.hidden = true;
+          }
+
+          if (typeof contactDialog?.showModal === "function") {
+            contactDialog.showModal();
+          } else {
+            contactDialog?.setAttribute("open", "");
+          }
+
+          document.body.classList.add("modal-open");
+          window.requestAnimationFrame(() => contactName?.focus());
+        });
+      });
+
+      closeContactButton?.addEventListener("click", closeContactDialog);
+
+      // Treat a click on the native dialog backdrop as a close action.
+      contactDialog?.addEventListener("click", (event) => {
+        const dialogBounds = contactDialog.getBoundingClientRect();
+        const clickedInside =
+          event.clientX >= dialogBounds.left &&
+          event.clientX <= dialogBounds.right &&
+          event.clientY >= dialogBounds.top &&
+          event.clientY <= dialogBounds.bottom;
+
+        if (!clickedInside) {
+          closeContactDialog();
+        }
+      });
+
+      // Unlock page scrolling and return focus to the button that opened it.
+      contactDialog?.addEventListener("close", () => {
+        document.body.classList.remove("modal-open");
+        lastContactTrigger?.focus();
+      });
+
+      // Demonstrate submission locally; no visitor data is transmitted.
+      contactForm?.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (contactStatus) {
+          contactStatus.hidden = false;
+        }
+      });
+
+      // Reveal content once as it enters the viewport.
+      const revealItems = document.querySelectorAll("[data-reveal]");
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      if (
+        prefersReducedMotion ||
+        !("IntersectionObserver" in window) ||
+        revealItems.length === 0
+      ) {
+        return;
+      }
+
+      document.documentElement.classList.add("reveal-ready");
+
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        {
+          threshold: 0.18,
+          rootMargin: "0px 0px -8% 0px"
+        }
+      );
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    });
+  </script>
+</body>
+</html>
